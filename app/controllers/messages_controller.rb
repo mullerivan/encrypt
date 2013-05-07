@@ -29,7 +29,7 @@ class MessagesController < ApplicationController
         format.json { render json: @message }
        end 
     else
-       flash[:error] = "You can't show this message..."
+      flash[:error] = "You can't show this message..."
       redirect_to  messages_path
     end
   end
