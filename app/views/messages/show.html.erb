@@ -14,6 +14,9 @@
   <b>User:</b>
   <%= @message.user %>
 </p>
-
+<p>
+	<b>Link to sharing:</b>
+	<%= url_for(show_encrypted_message_url)  %>
+</p>	
 
 <%= link_to 'Back', messages_path, :class => 'btn btn-success' %>

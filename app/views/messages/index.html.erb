@@ -3,7 +3,6 @@
 <table>
   <tr>
     <th>Title</th>
-    <th>Content</th>
     <th>User</th>
     <th></th>
     <th></th>
@@ -13,7 +12,6 @@
 <% @messages.each do |message| %>
   <tr>
     <td><%= message.title %></td>
-    <td><%= message.content %></td>
     <td><%= message.user %></td>
 
     <td><%= link_to 'Show encrypted', show_encrypted_message_path(message), :class => 'btn btn-success'  if current_user.id == message.user.id%></td>
