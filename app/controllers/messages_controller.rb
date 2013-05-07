@@ -21,13 +21,17 @@ class MessagesController < ApplicationController
   # GET /messages/1.json
   def show_encrypted
     @message = Message.find params[:id]
-    cipher = Gibberish::AES.new(Digest::SHA1.hexdigest(current_user.encrypted_password))
-    @message_dec = cipher.dec(@message.content)
-    respond_to do |format|
-      format.html # show_encrypted.html.erb
-      format.json { render json: @message }
+    if current_user.id == @message.user_id
+      cipher = Gibberish::AES.new(Digest::SHA1.hexdigest(current_user.encrypted_password))
+      @message_dec = cipher.dec(@message.content)
+      respond_to do |format|
+        format.html # show_encrypted.html.erb
+        format.json { render json: @message }
+       end 
+    else
+       flash[:error] = "You can't show this message..."
+      redirect_to  messages_path
     end
-    
   end
 
   def show
