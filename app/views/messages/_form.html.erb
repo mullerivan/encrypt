@@ -1,0 +1,6 @@
+<%= simple_form_for @message do |f| %>
+  <%= f.input :title %>
+  <%= f.association :user %>
+  <%= f.text_area :content %>
+  <%= f.button :submit %>
+<% end %>

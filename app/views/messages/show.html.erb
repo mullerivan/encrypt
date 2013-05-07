@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @message.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @message.content %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @message.user %>
+</p>
+
+
+<%= link_to 'Back', messages_path, :class => 'btn btn-success' %>
